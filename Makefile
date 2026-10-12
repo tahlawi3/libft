@@ -1,9 +1,9 @@
 NAME = libft.a
 
-CC = (cc)
-cflags = -Wall -Wextra -Werror
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-src = ft_isalpha.c\
+SRC = ft_isalpha.c\
       ft_isdigit.c\
       ft_isalnum.c\
       ft_isascii.c\
@@ -47,18 +47,18 @@ src = ft_isalpha.c\
       ft_lstiter.c\
       ft_lstmap.c
 
-obj = $(src:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME) : $(obj)
-	ar rcs $(NAME) $(obj)
+$(NAME) : $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c libft.h
-	$(CC) $(cflags) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(obj)
+	rm -f $(OBJ)
 fclean: clean
 	rm -f $(NAME)
 re: fclean all
